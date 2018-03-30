@@ -15,6 +15,8 @@ massive(process.env.CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
 }).catch(console.log);
 
-app.post('/api/people', ctrl.postPeople);
+app.get('/api/people', ctrl.getPeople);
+app.post('/api/people', ctrl.addName);
+app.put('/api/people/:id', ctrl.changeName);
 
 app.listen(port, () => `Listening on port ${port}`);
